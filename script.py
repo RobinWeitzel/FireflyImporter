@@ -98,7 +98,7 @@ def get_transactions():
             logging.info('Retrieved ' + str(len(transactions)) + ' for account ' + account.iban + ' that took place in the last 7 days.')
             create_transactions(account, transactions)
 
-schedule.every().hour.do(get_transactions)
+schedule.every().day.at("10:00").do(get_transactions)
 
 logging.info("Started scheduled job")
 
